@@ -3,17 +3,22 @@
 window.onload = init;
 window.onresize = resize;
 
+var ctx;
+var c;
 function init(){
 
 	initheadtrack();
 	initGame();
 	resize();
+
 }
 
 function initGame(){
-	var c = document.querySelector("#container");
-	var ctx = c.getContext("2d");
+	c = document.querySelector("#container");
+	ctx = c.getContext("2d");
 	var body = document.querySelector("body");
+
+	draw();
 
 	var start = document.createElement("div");
 	start.style.position = "absolute";

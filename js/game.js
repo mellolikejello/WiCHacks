@@ -1,26 +1,14 @@
 "use strict";
 
-window.onload = init;
+// window.onload = initStuff;
 
-var c;
-var ctx;
-
-var enemyProbablilityPerSecond=0.5;
-
-var canvasWidth = 500;
+// var c;
+// var ctx;
+var enemyProbablilityPerSecond=1;
+var canvasWidth = 800;
 var canvasHeight= 500;
-
 var lastTime=0;
-
 var enemies=[];
-
-function init(){
-	// get canvas and context
-	c = document.getElementById("container");
-	ctx=c.getContext("2d");
-
-	draw();
-}
 
 function draw(){
 	//draw enemies

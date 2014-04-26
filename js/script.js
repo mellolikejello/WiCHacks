@@ -53,8 +53,30 @@ function initheadtrack()
 {
  	var videoInput = document.getElementById('inputVideo');
   	var canvasInput = document.getElementById('inputCanvas');
+  	var canvasOverlay = document.getElementById('overlay');
+    var overlayContext = canvasOverlay.getContext('2d');
+   
+    canvasOverlay.style.position = "absolute";
+	canvasOverlay.style.top = '0px';
+	canvasOverlay.style.zIndex = '100001';
+	canvasOverlay.style.display = 'block';
+	
 
   	var htracker = new headtrackr.Tracker();
   	htracker.init(videoInput, canvasInput);
   	htracker.start();
 }
+
+  	document.addEventListener("facetrackingEvent", function( event ) {
+				// clear canvas
+	         overlayContext.clearRect(0,0,320,240);
+				// once we have stable tracking, draw rectangle
+				if (event.detection == "CS") {
+					overlayContext.translate(event.x, event.y)
+					overlayContext.rotate(event.angle-(Math.PI/2));
+					overlayContext.strokeStyle = "#00CC00";
+					overlayContext.strokeRect((-(event.width/2)) >> 0, (-(event.height/2)) >> 0, event.width, event.height);
+					overlayContext.rotate((Math.PI/2)-event.angle);
+					overlayContext.translate(-event.x, -event.y);
+				}
+		});

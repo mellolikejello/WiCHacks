@@ -2,6 +2,7 @@ window.onload = init;
 window.onresize = resize;
 
 function init(){
+	initheadtrack();
 	resize();
 }
 
@@ -31,4 +32,14 @@ function centerIn(child, parent){
 function removePXString(sizeString){
 	var sliceCount = sizeString.length - 2;
 	return sizeString.slice(0, sliceCount);
+}
+
+function initheadtrack()
+{
+ 	var videoInput = document.getElementById('inputVideo');
+  	var canvasInput = document.getElementById('inputCanvas');
+
+  	var htracker = new headtrackr.Tracker();
+  	htracker.init(videoInput, canvasInput);
+  	htracker.start();
 }

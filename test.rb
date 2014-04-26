@@ -43,7 +43,7 @@ get '/send' do
   end
 end
 
-post '/reply' do
+get '/reply' do
   response = Twilio::TwiML::Response.new do |r|
     # Should be your Twilio Number or a verified Caller ID
     r.Dial :callerId => '+19083645572' do |d|
@@ -51,4 +51,6 @@ post '/reply' do
     end
   end
   response.text
+  # content_type 'text/xml'
+  # '<Response><Message>Touchdown, Bo Jackson!</Message></Response>'
 end

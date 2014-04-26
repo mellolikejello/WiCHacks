@@ -11,8 +11,9 @@ get '/' do
   capability.allow_client_incoming "player"
   token = capability.generate
   puts token
-  str = 'Hello World! Currently running version ' + Twilio::VERSION + \
-  ' of the twilio-ruby library.'
+  # str = 'Hello World! Currently running version ' + Twilio::VERSION + \
+  # ' of the twilio-ruby library.'
+  erb :index
 end
 
 get '/send' do

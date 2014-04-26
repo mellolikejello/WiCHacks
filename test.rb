@@ -3,7 +3,15 @@ require 'twilio-ruby'
 require 'sinatra'
 
 get '/' do
-  'Hello World! Currently running version ' + Twilio::VERSION + \
+  account_sid = 'ACf6731282b39f4a5dfece1428cd9db6eb'
+  auth_token = '17c7cfde9ff1d4e2728cd428ec0b175a'
+  capability = Twilio::Util::Capability.new account_sid, auth_token
+  # Create an application sid at twilio.com/user/account/apps and use it here
+  capability.allow_client_outgoing "APd9886b158d6e4a05509f4d8469ac3e9e"
+  capability.allow_client_incoming "player"
+  token = capability.generate
+  puts token
+  str = 'Hello World! Currently running version ' + Twilio::VERSION + \
   ' of the twilio-ruby library.'
 end
 
@@ -33,4 +41,9 @@ get '/send' do
     )
     puts "Sent #{messages[randmsg]} to #{value}"
   end
+end
+
+get '/reply' do
+  token = "123"
+  erb :index, :locals => {:token => token}
 end

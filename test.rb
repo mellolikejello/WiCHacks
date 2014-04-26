@@ -43,7 +43,12 @@ get '/send' do
   end
 end
 
-get '/reply' do
-  token = "123"
-  erb :index, :locals => {:token => token}
+post '/reply' do
+  response = Twilio::TwiML::Response.new do |r|
+    # Should be your Twilio Number or a verified Caller ID
+    r.Dial :callerId => '+19083645572' do |d|
+        d.Client 'player'
+    end
+  end
+  response.text
 end

@@ -2,25 +2,21 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8"/>
-	<title>TITLE</title>
+	<title>Dodge</title>
 	<link href="css/style.css" rel="stylesheet" type="text/css">
 	<link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
-	<script src="js/script.js"></script>
+	<script src="js/Enemy.js"></script>
+	<script src="js/script.js"></script> 
+	<script src="js/game.js"></script>
 	<script src="js/headtrackr.js"></script>
+
 	<!-- HTML5 Shiv for Browser Compatibility -->
 	<!--[if IE]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
 </head>
 <body>
 	<canvas id="container" width="800" height="500">Sorry, your browser does not support canvas.</canvas>
-	<canvas id="inputCanvas" width="320" height="240" style="display:none"></canvas>
-	<video id="inputVideo" autoplay loop></video>
-	<script type="text/javascript">
- 	var videoInput = document.getElementById('inputVideo');
-  	var canvasInput = document.getElementById('inputCanvas');
-
-  	var htracker = new headtrackr.Tracker();
-  	htracker.init(videoInput, canvasInput);
-  	htracker.start();
-	</script>
+	<canvas id="inputCanvas" width="800" height="500" style="display:none"></canvas>
+	<canvas id = "overlay" width="800" height="500"></canvas>
+	<video id="inputVideo" autoplay loop style="display:none"></video>
 </body>
 </html>

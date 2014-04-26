@@ -6,10 +6,11 @@ window.onresize = resize;
 var ctx;
 var c;
 
-function init(){
+var headPos = [0,0,0,0];
 
-	initheadtrack();
+function init(){
 	initGame();
+	initheadtrack();
 	resize();
 
 }
@@ -24,7 +25,7 @@ function initGame(){
 	var start = document.createElement("div");
 	start.style.position = "absolute";
 	start.textContent = "Start Game";
-	body.appendChild(start);
+	//body.appendChild(start);
 }
 
 function resize(){
@@ -67,7 +68,6 @@ function initheadtrack()
 	canvasOverlay.style.zIndex = '100001';
 	canvasOverlay.style.display = 'block';
 	
-
   	var htracker = new headtrackr.Tracker();
   	htracker.init(videoInput, canvasInput);
   	htracker.start();

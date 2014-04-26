@@ -43,7 +43,7 @@ function update(dt){
 	for(var i = 0; i<enemies.length; i++){
 		if(enemies[i].y>=canvasHeight+10){
 			enemies.splice(i,1);
-			console.log("enemy is out of array");
+			//console.log("enemy is out of array");
 		}
 	}
 

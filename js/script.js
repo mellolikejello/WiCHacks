@@ -5,6 +5,7 @@ window.onresize = resize;
 
 var ctx;
 var c;
+
 function init(){
 
 	initheadtrack();
@@ -28,9 +29,9 @@ function initGame(){
 
 function resize(){
 	var body = document.querySelector("body");
-	var mainCanvas = document.querySelector("#container");
-
-	centerIn(mainCanvas, body);
+	var overlay = document.getElementById('overlay');
+	centerIn(c, body);
+	centerIn(overlay, body);
 }
 
 //center child element in parent element
@@ -73,7 +74,7 @@ function initheadtrack()
 
   	document.addEventListener("facetrackingEvent", function( event ) {
 		// clear canvas
-     	overlayContext.clearRect(0,0,320,240);
+     	overlayContext.clearRect(0,0,800,500);
 		// once we have stable tracking, draw rectangle
 		if (event.detection == "CS") {
 			overlayContext.translate(event.x, event.y)

@@ -10,5 +10,17 @@
 </head>
 <body>
 	<canvas id="container" width="500" height="500">Sorry, your browser does not support canvas.</canvas>
+	<canvas id="inputCanvas" width="320" height="240" style="display:none"></canvas>
+	<video id="inputVideo" autoplay loop></video>
+	<script type="text/javascript">
+ 	var videoInput = document.getElementById('inputVideo');
+  	var canvasInput = document.getElementById('inputCanvas');
+
+  	var htracker = new headtrackr.Tracker();
+  	htracker.init(videoInput, canvasInput);
+  	htracker.start();
+	</script>
+
+	<script src="js/headtrackr.js"></script>
 </body>
 </html>

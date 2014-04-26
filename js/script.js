@@ -6,6 +6,8 @@ window.onresize = resize;
 var ctx;
 var c;
 
+var isStarted = false;
+
 var headPos = [0,0,0,0];
 
 function init(){
@@ -13,15 +15,13 @@ function init(){
 	initheadtrack();
 	resize();
 
+	document.addEventListener("headtrackrStatus", updateHeadtrackr);
 }
 
 function initGame(){
 	c = document.querySelector("#container");
 	ctx = c.getContext("2d");
 	var body = document.querySelector("body");
-
-	draw();
-
 	var start = document.createElement("div");
 	start.style.position = "absolute";
 	start.textContent = "Start Game";
@@ -85,6 +85,12 @@ function initheadtrack()
 			overlayContext.translate(-event.x, -event.y);
 		}
 	});
+}
+
+function updateHeadtrackr(e){
+	if(e.status == "detecting"){
+		if(!isStarted) draw();
+	}
 }
 
   	

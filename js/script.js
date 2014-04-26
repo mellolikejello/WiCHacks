@@ -1,9 +1,23 @@
+"use strict";
+
 window.onload = init;
 window.onresize = resize;
 
 function init(){
 	initheadtrack();
+	initGame();
 	resize();
+}
+
+function initGame(){
+	var c = document.querySelector("#container");
+	var ctx = c.getContext("2d");
+	var body = document.querySelector("body");
+
+	var start = document.createElement("div");
+	start.style.position = "absolute";
+	start.textContent = "Start Game";
+	body.appendChild(start);
 }
 
 function resize(){

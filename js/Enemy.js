@@ -19,11 +19,6 @@ window.Enemy = (function(){
 
 	var e = Enemy.prototype;
 
-	// e.inBounds = function(){
-	// 	return this.x>=0&& this.x <this.canvasWidth && this.y>0 && this.y <= this.canvasHeight;
-
-	// };
-
 	e.draw = function (ctx){
 		var halfWidth = this.width/2;
 		var halfHeight = this.height/2;
@@ -35,7 +30,6 @@ window.Enemy = (function(){
 	};
 
 	e.update=function(dt){
-		// this.xVelocity=this.amplitude * Math.sin(this.age*Math.PI*dt);
 		this.x+=this.xVelocity;
 		this.y+=this.yVelocity*dt;
 		this.age++;

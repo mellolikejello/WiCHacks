@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'heroku'
+# gem 'heroku'
 gem 'sinatra'
 gem 'thin'
+gem 'twilio-ruby'
